@@ -1,7 +1,10 @@
-# Seven-Wonders-Of-World
-WebFullStack-ND-Project
+##Seven-Wonder-Of-World
+<strong>
+This is a map of worldwide show 7 wonder of the world eac</strong>
+##How To Run:
+1- you need a browser only open index.html<br>
+##Use:
+1-You can click on any place in the map to see INFO. about it<br>
+2-You can click on the side menu to also see INFO. about it <br>
+3-And you can search on search bar and filter the wonders on the map<br/>
 
-
-how to user it
----
-open 7 wonder map then you will see 7 markers in the map , each for everylocation, when you click in any of marker you will get brief about this wonder with image , you can also filer location using search box
