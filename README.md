@@ -1,6 +1,6 @@
 # Seven-Wonders-Of-World
 
-### This is a map for worldwide showing seven wonders of the world.
+### This is a map of worldwide showing seven wonders of the world.
 
 ## How To Run:
 * open index.html with your favourite browser
