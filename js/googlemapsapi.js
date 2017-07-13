@@ -79,7 +79,7 @@ function ViewModel(){
   zoom: 3
   });
  
- infoWindow = new google.maps.();
+ infoWindow = new google.maps.InfoWindow();
  initMarkers();
 
 
