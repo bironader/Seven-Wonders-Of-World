@@ -3,58 +3,58 @@ var  infoWindow;
 var markers=[];
 var contentString;
 var sevenWonders = [
-{
-  name: 'Pyramids Of Giza',
-  address: ' Pyramids of Giza, Al Haram, Giza, Egypt',
-  lat:  29.976480,
-  lng:  31.131302,
-  desc: ' The Pyramids of Giza or The Giza Necropolis are amazing and very well know monument to ancient Egyptian culture'
-},
-{
-  name:'The Eiffel Tower',
-  address: 'The Eiffel Tower, Paris, France',
-  lat:  48.858093,
-  lng: 2.294694,
-  desc: 'The Eiffel Tower is considered one of the most recognizable and favorite landmarks of modern world. The symbol of Paris and the whole France'
-},
-{
-  name:  'Great Wall of China',
-  address: 'Great Wall of China, Huairou, China',
-  lat: 40.431908,
-  lng: 116.570374,
-  desc: 'Great Wall of China is one of the world famous miracle located in a few provinces of China. It is a very long fortification estimated to be over 21,000 km long which was built during the Early and Middle Ages'
+  {
+    name: 'Pyramids Of Giza',
+    address: ' Pyramids of Giza, Al Haram, Giza, Egypt',
+    lat:  29.976480,
+    lng:  31.131302,
+    desc: ' The Pyramids of Giza or The Giza Necropolis are amazing and very well know monument to ancient Egyptian culture'
+  },
+  {
+    name:'The Eiffel Tower',
+    address: 'The Eiffel Tower, Paris, France',
+    lat:  48.858093,
+    lng: 2.294694,
+    desc: 'The Eiffel Tower is considered one of the most recognizable and favorite landmarks of modern world. The symbol of Paris and the whole France'
+  },
+  {
+    name:  'Great Wall of China',
+    address: 'Great Wall of China, Huairou, China',
+    lat: 40.431908,
+    lng: 116.570374,
+    desc: 'Great Wall of China is one of the world famous miracle located in a few provinces of China. It is a very long fortification estimated to be over 21,000 km long which was built during the Early and Middle Ages'
 
-},
-{
-  name: 'The Colosseum of Rome',
-  address: 'The Colosseum of Rome, Rome, Italy',
-  lat: 41.890251,
-  lng: 12.492373,
-  desc: "the Colosseum is one of the main attractions and historic monuments of Rome, Italy. It is an amphitheater constructed in the 80 AD (under the rule of Titus), made of stones and concrete"
-},
-{
-  name: 'Taj Mahal',
-  address: 'Taj Mahal, Agra, Uttar Pradesh, India',
-  lat: 27.173891,
-  lng: 78.042068,
-  desc: "Taj Mahal is a palace built by Mughal emperor Shah Jahan for his third wife Mumtaz Mahal in 1632. It is one of the most popular tourist destinations and a known wonder of the world"
-},
-{
-  name: "Christ the Redeemer",
-  address: "Rio de Janeiro Brazil",
-  lat:-22.951871,
-  lng:-43.21118,
-  desc:"Christ the Redeemer (Portuguese: Cristo Redentor), is a statue of Jesus Christ in Rio de Janeiro, Brazil. From 1931 until 2010 it was the largest Art Deco statue in the world. It is 30 metres (98 ft) tall. It sits on a 8 metres (26 ft) pedestal on the peak of the 700-metre (2,300 ft) tall Corcovado mountain. The statue overlooks the city."
-},
-{
-  name: "Chichen Itza",
-  address: "Yucatán, Mexico",
-  lat: 20.4000,
-  lng:88.3400,
-  desc: "Chichén Itzá is a large Mayan city famous for a large, pyramid temple built by the Maya civilization. It is on the Yucatán Peninsula, about 120 km to the east of Mérida. The temple, called Castillo, is about 1 km in diameter."
-}
-];
+  },
+  {
+    name: 'The Colosseum of Rome',
+    address: 'The Colosseum of Rome, Rome, Italy',
+    lat: 41.890251,
+    lng: 12.492373,
+    desc: "the Colosseum is one of the main attractions and historic monuments of Rome, Italy. It is an amphitheater constructed in the 80 AD (under the rule of Titus), made of stones and concrete"
+  },
+  {
+    name: 'Taj Mahal',
+    address: 'Taj Mahal, Agra, Uttar Pradesh, India',
+    lat: 27.173891,
+    lng: 78.042068,
+    desc: "Taj Mahal is a palace built by Mughal emperor Shah Jahan for his third wife Mumtaz Mahal in 1632. It is one of the most popular tourist destinations and a known wonder of the world"
+  },
+  {
+    name: "Christ the Redeemer",
+    address: "Rio de Janeiro Brazil",
+    lat:-22.951871,
+    lng:-43.21118,
+    desc:"Christ the Redeemer (Portuguese: Cristo Redentor), is a statue of Jesus Christ in Rio de Janeiro, Brazil. From 1931 until 2010 it was the largest Art Deco statue in the world. It is 30 metres (98 ft) tall. It sits on a 8 metres (26 ft) pedestal on the peak of the 700-metre (2,300 ft) tall Corcovado mountain. The statue overlooks the city."
+  },
+  {
+    name: "Chichen Itza",
+    address: "Yucatán, Mexico",
+    lat: 20.4000,
+    lng:88.3400,
+    desc: "Chichén Itzá is a large Mayan city famous for a large, pyramid temple built by the Maya civilization. It is on the Yucatán Peninsula, about 120 km to the east of Mérida. The temple, called Castillo, is about 1 km in diameter."
 
+  }
+  ];
 var model = function(wonder){
   var self = this;
   this.name = wonder.name;
@@ -77,7 +77,8 @@ function ViewModel(){
  map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 29.976480, lng:  31.131302},
   zoom: 3
-});
+  });
+ 
  infoWindow = new google.maps.();
  initMarkers();
 
