@@ -1,8 +1,8 @@
 var map;
-var  infowindow;
+var  infoWindow;
 var markers=[];
 var contentString;
-var seven_wonders = [
+var sevenWonders = [
 {
   name: 'Pyramids Of Giza',
   address: ' Pyramids of Giza, Al Haram, Giza, Egypt',
@@ -65,20 +65,20 @@ var model = function(wonder){
 
 };
 
-function viewModel(){
+function ViewModel(){
 
  self.searchKey = ko.observable('');
  self.wonderList = ko.observableArray([]);
 
- for (var i =0 ; i<seven_wonders.length ; i++) {
+ for (var i =0 ; i<sevenWonders.length ; i++) {
 
-   self.wonderList.push(new model(seven_wonders[i]));
+   self.wonderList.push(new model(sevenWonders[i]));
  }
  map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 29.976480, lng:  31.131302},
   zoom: 3
 });
- infowindow = new google.maps.InfoWindow();
+ infoWindow = new google.maps.();
  initMarkers();
 
 
@@ -89,6 +89,7 @@ function viewModel(){
 
     markers.forEach(function(rec){
       rec.setMap(map);
+
     });
 
     return self.wonderList(); // wonderList will bind to html 
@@ -114,6 +115,7 @@ function viewModel(){
     return result;
     
   });
+
   }
 
 }, self);
@@ -124,10 +126,10 @@ function initMarkers(){
 
   var marker;
 
-  for (var i = 0; i < seven_wonders.length; i++) {
-    var position = {lat: seven_wonders[i].lat, lng: seven_wonders[i].lng};
-    var title = seven_wonders[i].name;
-    var address = seven_wonders[i].address;
+  for (var i = 0; i < sevenWonders.length; i++) {
+    var position = {lat: sevenWonders[i].lat, lng: sevenWonders[i].lng};
+    var title = sevenWonders[i].name;
+    var address = sevenWonders[i].address;
     marker= new google.maps.Marker({
       position: position,
       map: map,
@@ -178,15 +180,15 @@ function showInfo(marker){
       '<h1 id="firstHeading" class="firstHea  ding">'+marker.title+'</h1>'+
       '<h3 id="firstHeading" class="firstHeading">'+marker.address+'</h3>'+
       '<div id="bodyContent">'+
-      '<p>'+seven_wonders[marker.id].desc+'</p>'+
+      '<p>'+sevenWonders[marker.id].desc+'</p>'+
       '<img src='+image+" style = width:100%;>"+
       '</div>'+
       '</div>';
-      infowindow.setContent(contentString);
+      infoWindow.setContent(contentString);
       marker.setAnimation(google.maps.Animation.BOUNCE);
 
 
-      infowindow.open(map,marker);
+      infoWindow.open(map,marker);
 
     } 
     else
@@ -195,14 +197,14 @@ function showInfo(marker){
       '<h1 id="firstHeading" class="firstHea  ding">'+marker.title+'</h1>'+
       '<h3 id="firstHeading" class="firstHeading">'+marker.address+'</h3>'+
       '<div id="bodyContent">'+
-      '<p>'+seven_wonders[marker.id].desc+'</p>'+
+      '<p>'+sevenWonders[marker.id].desc+'</p>'+
       '<p> faile to load the image</p>'+
       '</div>'+
       '</div>';
 
-      infowindow.setContent(contentString);
+      infoWindow.setContent(contentString);
       marker.setAnimation(google.maps.Animation.BOUNCE);
-      infowindow.open(map,marker);
+      infoWindow.open(map,marker);
     }
 
   },
@@ -219,9 +221,9 @@ function errorHandling() {
   alert("Check your connection");
 }
 
-function initMap()
-{
- ko.applyBindings(new viewModel()); 
+function initMap(){
+
+ ko.applyBindings(new ViewModel()); 
 }
 
 
