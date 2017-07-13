@@ -1,4 +1,4 @@
-##Neighborhood Map
+# Seven-Wonders-Of-World
 <strong>
 This is a map for time square,NY,USA show some places if you are new in NY you can visit and it's various places 
 from restaurant to to studios and hotel to stay.<br>
