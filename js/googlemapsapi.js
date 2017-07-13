@@ -2,9 +2,6 @@ var map;
 var  infowindow;
 var markers=[];
 var contentString;
-
-
-
 var seven_wonders = [
 {
   name: 'Pyramids Of Giza',
@@ -33,14 +30,14 @@ var seven_wonders = [
   address: 'The Colosseum of Rome, Rome, Italy',
   lat: 41.890251,
   lng: 12.492373,
-  desc: 'the Colosseum is one of the main attractions and historic monuments of Rome, Italy. It is an amphitheater constructed in the 80 AD (under the rule of Titus), made of stones and concrete'
+  desc: "the Colosseum is one of the main attractions and historic monuments of Rome, Italy. It is an amphitheater constructed in the 80 AD (under the rule of Titus), made of stones and concrete"
 },
 {
   name: 'Taj Mahal',
   address: 'Taj Mahal, Agra, Uttar Pradesh, India',
   lat: 27.173891,
   lng: 78.042068,
-  desc: 'Taj Mahal is a palace built by Mughal emperor Shah Jahan for his third wife Mumtaz Mahal in 1632. It is one of the most popular tourist destinations and a known wonder of the world'
+  desc: "Taj Mahal is a palace built by Mughal emperor Shah Jahan for his third wife Mumtaz Mahal in 1632. It is one of the most popular tourist destinations and a known wonder of the world"
 },
 {
   name: "Christ the Redeemer",
@@ -68,8 +65,8 @@ var model = function(wonder){
 
 };
 
-function viewModel()
-{   
+function viewModel(){
+
  self.searchKey = ko.observable('');
  self.wonderList = ko.observableArray([]);
 
@@ -85,8 +82,6 @@ function viewModel()
  initMarkers();
 
 
-
-
  self.filteredRecored = ko.computed( function() {
   var filter = self.searchKey().toLowerCase();
 
@@ -94,7 +89,6 @@ function viewModel()
 
     markers.forEach(function(rec){
       rec.setMap(map);
-
 
     });
 
@@ -118,21 +112,18 @@ function viewModel()
     }
     counter = counter + 1;
 
-
     return result;
     
   });
 
   }
 
-
 }, self);
 }
 
-
 // init markers for all 7 locations
-function initMarkers()
-{
+function initMarkers(){
+
   var marker;
 
   for (var i = 0; i < seven_wonders.length; i++) {
@@ -153,29 +144,20 @@ function initMarkers()
 
   }
 
-
-
-
 }
 
-function onClickMarker(marker)
-{
+function onClickMarker(marker){
+
 
   marker.addListener('click', function() {
-
-
-
     showInfo(marker);
-
-
 
   });
 
-
-
 }
-function showInfo(marker)
-{
+
+function showInfo(marker){
+
   // third party api getty image
   var url = "https://api.gettyimages.com/v3/search/images?fields=id,title,thumb,referral_destinations&sort_order=best&phrase="+marker.title;
   
@@ -212,31 +194,27 @@ function showInfo(marker)
     else
     {
       contentString = '<div id="content">'+
-    
+      '<h1 id="firstHeading" class="firstHea  ding">'+marker.title+'</h1>'+
+      '<h3 id="firstHeading" class="firstHeading">'+marker.address+'</h3>'+
+      '<div id="bodyContent">'+
+      '<p>'+seven_wonders[marker.id].desc+'</p>'+
+      '<p> faile to load the image</p>'+
+      '</div>'+
+      '</div>';
 
-    '<h1 id="firstHeading" class="firstHea  ding">'+marker.title+'</h1>'+
-    '<h3 id="firstHeading" class="firstHeading">'+marker.address+'</h3>'+
-    '<div id="bodyContent">'+
-    '<p>'+seven_wonders[marker.id].desc+'</p>'+
-    '<p> faile to load the image</p>'+
-    '</div>'+
-    '</div>';
-    infowindow.setContent(contentString);
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-    infowindow.open(map,marker);
-  }
+      infowindow.setContent(contentString);
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      infowindow.open(map,marker);
+    }
 
   },
-    error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        errorHandling();
-    }       
+  error: function(XMLHttpRequest, textStatus, errorThrown) { 
+    errorHandling();
+  }       
 });
 
-  
-  
+
 }
-
-
 
 
 function errorHandling() {
