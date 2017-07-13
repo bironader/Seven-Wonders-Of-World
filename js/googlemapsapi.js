@@ -89,7 +89,6 @@ function viewModel(){
 
     markers.forEach(function(rec){
       rec.setMap(map);
-
     });
 
     return self.wonderList(); // wonderList will bind to html 
@@ -115,7 +114,6 @@ function viewModel(){
     return result;
     
   });
-
   }
 
 }, self);
